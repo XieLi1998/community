@@ -1,6 +1,8 @@
 package com.xieli.community;
 
+import com.xieli.community.dao.DiscussPostMapper;
 import com.xieli.community.dao.UserMapper;
+import com.xieli.community.entity.DiscussPost;
 import com.xieli.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by xieli on 2020/12/19.
@@ -19,6 +22,9 @@ public class MapperTests {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    public DiscussPostMapper discussPostMapper;
 
     @Test
     public void testSelectUser() {
@@ -57,6 +63,14 @@ public class MapperTests {
 
         rows = userMapper.updatePassword(150, "hello");
         System.out.println(rows);
+    }
+
+    @Test
+    public void testSelectPosts() {
+        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(0, 0, 10);
+        for (DiscussPost post : list) {
+            System.out.println(post);
+        }
     }
 
 }
