@@ -45,7 +45,7 @@ public class MapperTests {
         user.setPassword("123456");
         user.setSalt("abc");
         user.setEmail("xieli@qq.com");
-        user.setHeadUrl("http://www.nowcoder.com/101.png");
+        user.setHeaderUrl("http://www.nowcoder.com/101.png");
         user.setCreateTime(new Date());
 
         int rows = userMapper.insertUser(user);
@@ -67,10 +67,13 @@ public class MapperTests {
 
     @Test
     public void testSelectPosts() {
-        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(0, 0, 10);
+        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(149, 0, 10);
         for (DiscussPost post : list) {
             System.out.println(post);
         }
+
+        int rows = discussPostMapper.selectDiscussPostRows(149);
+        System.out.println(rows);
     }
 
 }

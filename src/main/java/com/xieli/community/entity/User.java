@@ -15,7 +15,7 @@ public class User {
     private int type;
     private int status;
     private String activationCode;
-    private String headUrl;
+    private String headerUrl;
     private Date createTime;
 
     public int getId() {
@@ -82,12 +82,12 @@ public class User {
         this.activationCode = activationCode;
     }
 
-    public String getHeadUrl() {
-        return headUrl;
+    public String getHeaderUrl() {
+        return headerUrl;
     }
 
-    public void setHeadUrl(String headUrl) {
-        this.headUrl = headUrl;
+    public void setHeaderUrl(String headerUrl) {
+        this.headerUrl = headerUrl;
     }
 
     public Date getCreateTime() {
@@ -109,7 +109,7 @@ public class User {
                 ", type=" + type +
                 ", status=" + status +
                 ", activationCode='" + activationCode + '\'' +
-                ", headUrl='" + headUrl + '\'' +
+                ", headerUrl='" + headerUrl + '\'' +
                 ", createTime=" + createTime +
                 '}';
     }

@@ -1,7 +1,5 @@
 package com.xieli.community;
 
-import com.xieli.community.dao.TestDao;
-import com.xieli.community.service.TestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,25 +23,25 @@ class CommunityApplicationTests implements ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
-    @Test
-    public void testApplicationContext() {
-        System.out.println(applicationContext);
+//    @Test
+//    public void testApplicationContext() {
+//        System.out.println(applicationContext);
+//
+//        TestDao testDao = applicationContext.getBean(TestDao.class);
+//        System.out.println(testDao.select());
+//
+//        testDao = applicationContext.getBean("testDao", TestDao.class);
+//        System.out.println(testDao.select());
+//    }
 
-        TestDao testDao = applicationContext.getBean(TestDao.class);
-        System.out.println(testDao.select());
-
-        testDao = applicationContext.getBean("testDao", TestDao.class);
-        System.out.println(testDao.select());
-    }
-
-    @Test
-    public void testBeanManager() {
-        TestService testService = applicationContext.getBean(TestService.class);
-        System.out.println(testService);
-
-        testService = applicationContext.getBean(TestService.class);
-        System.out.println(testService);
-    }
+//    @Test
+//    public void testBeanManager() {
+//        TestService testService = applicationContext.getBean(TestService.class);
+//        System.out.println(testService);
+//
+//        testService = applicationContext.getBean(TestService.class);
+//        System.out.println(testService);
+//    }
 
     @Test
     public void testBeanConfig() {
@@ -52,20 +50,20 @@ class CommunityApplicationTests implements ApplicationContextAware {
         System.out.println(simpleDateFormat.format(new Date()));
     }
 
-    @Autowired
-    @Qualifier("testDao")
-    private TestDao testDao;
+//    @Autowired
+//    @Qualifier("testDao")
+//    private TestDao testDao;
 
-    @Autowired
-    private TestService testService;
+//    @Autowired
+//    private TestService testService;
 
     @Autowired
     private SimpleDateFormat simpleDateFormat;
 
-    @Test
-    public void testDI() {
-        System.out.println(testDao);
-        System.out.println(testService);
-        System.out.println(simpleDateFormat);
-    }
+//    @Test
+//    public void testDI() {
+//        System.out.println(testDao);
+//        System.out.println(testService);
+//        System.out.println(simpleDateFormat);
+//    }
 }
