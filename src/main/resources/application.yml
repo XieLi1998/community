@@ -2,7 +2,8 @@ server:
   port: 8080
   servlet:
     context-path: /community
-    
+
+
 spring:
   thymeleaf:
     cache: false
@@ -17,6 +18,7 @@ spring:
       minimum-idle: 5
       idle-timeout: 30000
 
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.xieli.community.entity
@@ -24,6 +26,11 @@ mybatis:
     use-generated-keys: true
     map-underscore-to-camel-case: true
 
-logging:
-  level:
-    com.xieli.community: debug
+
+#logging:
+#  level:
+#    com.xieli.community: debug
+#  file:
+#    name: d:/work/data/community/community.log
+
+
