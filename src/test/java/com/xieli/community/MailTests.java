@@ -1,5 +1,6 @@
 package com.xieli.community;
 
+import com.xieli.community.util.CommunityUtil;
 import com.xieli.community.util.MailClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class MailTests {
         System.out.println(content);
 
         mailClient.sendMail("2524546110@qq.com", "HTML", content);
+    }
+
+    @Test
+    public void testCommunityUtil() {
+        System.out.println(CommunityUtil.generateUUID());
     }
 
 }
