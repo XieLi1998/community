@@ -1,5 +1,6 @@
 package com.xieli.community.controller;
 
+import com.xieli.community.annotation.LoginRequired;
 import com.xieli.community.entity.User;
 import com.xieli.community.service.UserService;
 import com.xieli.community.util.CommunityUtil;
@@ -47,11 +48,13 @@ public class UserController {
     @Autowired
     private HostHolder hostHolder;
 
+    @LoginRequired
     @RequestMapping(path = "/setting", method = RequestMethod.GET)
     public String getSettingPage() {
         return "/site/setting";
     }
 
+    @LoginRequired
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public String uploadHeader(MultipartFile headerImage, Model model) {
         if (headerImage == null) {
@@ -109,6 +112,7 @@ public class UserController {
         }
     }
 
+    @LoginRequired
     @RequestMapping(path = "/update", method = RequestMethod.GET)
     public String updatePassword(String oldPassword, String newPassword, Model model) {
         User user = hostHolder.getUser();
