@@ -71,7 +71,7 @@ public class MessageController {
     public String getLetterDetail(@PathVariable("conversationId") String conversationId, Page page, Model model) {
         // 分页信息
         page.setLimit(5);
-        page.setPath("//letter/detail/" + conversationId);
+        page.setPath("/letter/detail/" + conversationId);
         page.setRows(messageService.findLetterCount(conversationId));
 
         // 私信列表
