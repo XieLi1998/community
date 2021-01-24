@@ -5,6 +5,7 @@ import com.xieli.community.entity.Page;
 import com.xieli.community.entity.User;
 import com.xieli.community.service.MessageService;
 import com.xieli.community.service.UserService;
+import com.xieli.community.util.CommunityConstant;
 import com.xieli.community.util.CommunityUtil;
 import com.xieli.community.util.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import java.util.*;
  */
 
 @Controller
-public class MessageController {
+public class MessageController implements CommunityConstant {
 
     @Autowired
     private MessageService messageService;
@@ -147,6 +148,23 @@ public class MessageController {
         messageService.addMessage(message);
 
         return CommunityUtil.getJSONString(0);
+    }
+
+
+    @RequestMapping(path = "notice/list", method = RequestMethod.GET)
+    public String getNoticeList(Model model) {
+        User user = hostHolder.getUser();
+
+        // 查询评论类通知
+        Message message = messageService.findLatestNotice(user.getId(), TOPIC_COMMENT);
+        Map<String, Object> messageVo = new HashMap<>();
+        if (message != null) {
+            messageVo.put("message",message);
+
+            
+        }
+        // 查询点赞类通知
+        // 查询关注类通知
     }
 
 }
