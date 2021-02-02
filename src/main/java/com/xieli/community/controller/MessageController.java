@@ -155,7 +155,7 @@ public class MessageController implements CommunityConstant {
     }
 
 
-    @RequestMapping(path = "notice/list", method = RequestMethod.GET)
+    @RequestMapping(path = "/notice/list", method = RequestMethod.GET)
     public String getNoticeList(Model model) {
         User user = hostHolder.getUser();
 
@@ -232,5 +232,16 @@ public class MessageController implements CommunityConstant {
 
         return "/site/notice";
     }
+
+//    @RequestMapping(path = "/notice/detail/{topic}", method = RequestMethod.GET)
+//    public String getNoticeDetail(@PathVariable("topic") String topic, Page page, Model model) {
+//        User user = hostHolder.getUser();
+//
+//        page.setLimit(5);
+//        page.setPath("/notice/detail/"+topic);
+//        page.setRows(messageService.findNoticeCount(user.getId(), topic));
+//
+//        List<Message> noticeList = messageService
+//    }
 
 }
