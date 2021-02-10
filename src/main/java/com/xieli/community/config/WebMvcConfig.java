@@ -1,9 +1,6 @@
 package com.xieli.community.config;
 
-import com.xieli.community.controller.interceptor.AlphaInterceptor;
-import com.xieli.community.controller.interceptor.LoginRequiredInterceptor;
-import com.xieli.community.controller.interceptor.LoginTicketInterceptor;
-import com.xieli.community.controller.interceptor.MessageInterceptor;
+import com.xieli.community.controller.interceptor.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -27,6 +24,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private MessageInterceptor messageInterceptor;
 
+    @Autowired
+    private DataInterceptor dataInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(alphaInterceptor)
@@ -40,6 +40,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //                .excludePathPatterns("/css/*.css","/js/*.js","/img/*.png","/img/*.jpg","/img/*.jpeg");
 
         registry.addInterceptor(messageInterceptor)
+                .excludePathPatterns("/css/*.css","/js/*.js","/img/*.png","/img/*.jpg","/img/*.jpeg");
+
+        registry.addInterceptor(dataInterceptor)
                 .excludePathPatterns("/css/*.css","/js/*.js","/img/*.png","/img/*.jpg","/img/*.jpeg");
     }
 }
