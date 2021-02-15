@@ -3,9 +3,11 @@ package com.xieli.community;
 import com.xieli.community.util.CommunityUtil;
 import com.xieli.community.util.MailClient;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -13,6 +15,7 @@ import org.thymeleaf.context.Context;
  * Created by xieli on 2020/12/22.
  */
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
 public class MailTests {
